@@ -72,15 +72,6 @@ COPY aix.sh /usr/bin/aix
 RUN /scripts/system-setup.pre.aix
 
 #
-# Make one run of /docker-entrypoint.sh, to allow the AIX system to
-# configure itself:
-#
-RUN cp /scripts/configure-system.aix /aix/etc/rc.conf \
-    && sh /docker-entrypoint.sh \
-    && test -f /aix/all-ok \
-    && rm /aix/all-ok
-
-#
 # Run the post-first-boot setup script:
 #
 RUN /scripts/system-setup.post.aixs
