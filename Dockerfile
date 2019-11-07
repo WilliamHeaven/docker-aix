@@ -24,6 +24,7 @@ EXPOSE ${SSH_PORT}
 EXPOSE 4444
 
 RUN apk add --no-cache curl unfs3
+RUN pkg_add -v python37
 
 RUN set -ex \
 	\
