@@ -17,7 +17,7 @@ ARG AIX_SETS="CD72220.iso"
 ARG AIX_PKGSRC_PACKAGES="bash"
 
 ENV AIX_ARCH=$AIX_ARCH \
-    AIX_VERSION=$AIX_VERSION \
+    AIX_VERSION=$AIX_VERSION 
 
 #EXPOSE ${SSH_PORT}
 #EXPOSE 4444
@@ -40,7 +40,7 @@ RUN cd /tmp \
 # Download patch_cd72220.py file:
 #
 RUN cd /tmp \
-    && curl --retry-connrefused --retry 20 -O "${AIX_PY}"
+    && curl --retry-connrefused --retry 20 -O "${AIX_PY}" \
     && python patch_cd72220.py CD72220.iso ModdedCD.iso
 
 #
