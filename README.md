@@ -66,7 +66,7 @@ When running without KVM support, other target architectures supported by QEMU m
 
 ## Source
 
-Source code is hosted on [GitHub](https://github.com/madworx/docker-AIX).
+Source code is hosted on [GitHub](https://github.com/jiangjufa/docker-aix.git).
 
 
 ## Contributions
