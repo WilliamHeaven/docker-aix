@@ -5,7 +5,7 @@
 # system  (by  way of  /aix/etc/startup.vars,  which  is invoked  from
 # /etc/rc.local).
 #
-EXPORT_VARS="SSH_PUBKEY SSH_PORT AIX_ARCH AIX_VERSION PKG_PATH USER_ID USER_NAME NETBSD_PKGSRC_PACKAGES"
+EXPORT_VARS="SSH_PUBKEY SSH_PORT AIX_ARCH AIX_VERSION PKG_PATH USER_ID USER_NAME"
 
 #
 # Generate /etc/startup.vars file before booting into AIX:
