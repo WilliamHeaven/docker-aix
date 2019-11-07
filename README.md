@@ -7,7 +7,7 @@ Run AIX in a docker container (Emulated/virtualized x86_64 using QEMU).
 All images have KVM-enabled QEMU, which  will be enabled if the docker
 engine supports it and you are running the container in privileged mode.
 
-Available at Docker hub as [madworx/aix](https://hub.docker.com/r/madworx/aix/).
+Available at Docker hub as [madworx/aix](https://github.com/jiangjufa/docker-aix.git).
 
 ## Usage
 
