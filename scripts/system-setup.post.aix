@@ -18,6 +18,7 @@ echo -e "Host localhost\n  ConnectTimeout=5\n" >> /etc/ssh/ssh_config
 # AIX setup:
 #
 cd /aix
+mkdir -p etc/ssh
 
 echo 'PermitRootLogin yes' >> etc/ssh/sshd_config
 echo '/usr/sbin/sshd' >> etc/rc.local
