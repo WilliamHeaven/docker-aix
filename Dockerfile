@@ -76,7 +76,7 @@ RUN /scripts/system-setup.pre.aix
 # configure itself:
 #
 RUN cp /scripts/configure-system.aix /aix/etc/rc.conf \
-    && /docker-entrypoint.sh \
+    && ./docker-entrypoint.sh \
     && test -f /aix/all-ok \
     && rm /aix/all-ok
 
