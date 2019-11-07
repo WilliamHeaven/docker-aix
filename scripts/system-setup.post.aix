@@ -43,6 +43,8 @@ auto_ifconfig=NO
 net_interfaces=""
 EOF
 
+mkdir -p etc/powerd/scripts/
+touch  etc/powerd/scripts/power_button
 echo "Setting power button action..."
 cat > etc/powerd/scripts/power_button <<EOF
 #!/bin/sh
