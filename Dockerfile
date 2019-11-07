@@ -74,7 +74,7 @@ RUN /scripts/system-setup.pre.aix
 #
 # Run the post-first-boot setup script:
 #
-RUN /scripts/system-setup.post.aixs
+RUN /scripts/system-setup.post.aix
 
 ENTRYPOINT [ "/docker-entrypoint.sh" ]
 
