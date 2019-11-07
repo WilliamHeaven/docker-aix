@@ -33,6 +33,7 @@ if [ "\${USER_ID}" ] ; then
 fi
 EOF
 
+touch  etc/rc.conf
 echo "Configuring rc.conf..."
 sed -e 's#rc_configured=NO#rc_configured=YES#' -i etc/rc.conf
 cat >> etc/rc.conf <<EOF
