@@ -1,0 +1,44 @@
+env:
+  matrix:
+    - AIX_VERSION=6.0
+    - AIX_VERSION=6.0.5
+    - AIX_VERSION=6.1
+    - AIX_VERSION=6.1.5
+    - AIX_VERSION=7.0
+    - AIX_VERSION=7.1.2
+    - AIX_VERSION=8.0
+    - AIX_VERSION=8.1
+  global:
+    - PATH=$HOME/.local/bin:$PATH
+
+sudo: required
+
+language: perl
+
+perl:
+  - "5.22"
+
+services:
+  - docker
+
+install: true
+
+before_install:
+  - source <(curl https://raw.githubusercontent.com/madworx/cd-ci-glue/master/src/cd-ci-glue.bash)
+  - pip install --user awscli
+
+script:
+  - make build
+  - DOCKER_IMAGE=madworx/aix:${AIX_VERSION}-x86_64 make tests
+
+jobs:
+  include:
+    - stage: Update DockerHub description
+      env: AIX_VERSION
+      script:
+        - is_travis_master_push &&
+          dockerhub_set_description madworx/aix README.md || true
+
+after_success:
+  - is_travis_master_push &&
+    dockerhub_push_image madworx/aix:${AIX_VERSION}-x86_64
