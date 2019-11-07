@@ -12,6 +12,7 @@ echo -e "/aix    0.0.0.0/0.0.0.0(rw,no_root_squash,insecure)\n" > /etc/exports
 # Aix setup:
 #
 cd /aix
+mkdir -p etc
 
 echo ". /etc/startup.vars" >> etc/profile
 
