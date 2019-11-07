@@ -29,4 +29,4 @@ fdesc              /dev     fdesc  ro,-o=union 0  0
 ptyfs              /dev/pts ptyfs  rw          0  0
 EOF
 
-gzip -c aix > aix.gz
+gzip -c /aix > aix.gz
