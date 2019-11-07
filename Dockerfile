@@ -75,10 +75,8 @@ RUN /scripts/system-setup.pre.aix
 # Make one run of /docker-entrypoint.sh, to allow the AIX system to
 # configure itself:
 #
-RUN mv /aix/etc/rc.conf /aix/etc/rc.conf.orig \
-    && cp /scripts/configure-system.aix/aix/etc/rc.conf \
+RUN cp /scripts/configure-system.aix /aix/etc/rc.conf \
     && /docker-entrypoint.sh \
-    && mv /aix/etc/rc.conf.orig /aix/etc/rc.conf \
     && test -f /aix/all-ok \
     && rm /aix/all-ok
 
