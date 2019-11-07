@@ -12,7 +12,7 @@ echo -e "Host localhost\n  ConnectTimeout=5\n" >> /etc/ssh/ssh_config
 # At this point AIX will have  generated host SSH keys, which we'll
 # import into our local (Linux-side) known_hosts file.
 #
-sed 's#^#localhost,127.0.0.1 #' /aix/etc/ssh/ssh*.pub > /root/.ssh/known_hosts
+#sed 's#^#localhost,127.0.0.1 #' /aix/etc/ssh/ssh*.pub > /root/.ssh/known_hosts
 
 #
 # AIX setup:
