@@ -78,7 +78,7 @@ trap "{ echo \"Shutting down gracefully...\" 1>&2 ; \
 #
 (
     export QEMU_CMDLINE="-nographic \
-			   -cdrom /aix/ModdedCD.iso \
+               -cdrom /aix/ModdedCD.iso \
                -monitor telnet:0.0.0.0:4444,server,nowait \
                -boot n \
                ${ENABLE_KVM} \
