@@ -54,5 +54,5 @@ cat > etc/powerd/scripts/power_button <<EOF
 exit 0
 EOF
 
-mkdir root/.ssh
+mkdir -p  root/.ssh
 echo "$(cat /root/.ssh/id_rsa.pub)" >> root/.ssh/authorized_keys
