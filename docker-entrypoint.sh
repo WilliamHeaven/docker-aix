@@ -77,17 +77,14 @@ trap "{ echo \"Shutting down gracefully...\" 1>&2 ; \
 # Boot up AIX by starting QEMU.
 #
 (
-  export QEMU_CMDLINE="-cpu POWER9 -machine pseries -m 2G -serial mon:stdio \
-                   -cdrom /aix/ModdedCD.iso \
-                   -d guest_errors \
-                   -prom-env "input-device=/vdevice/vty@71000000" \
-                   -prom-env "output-device=/vdevice/vty@71000000" \
-                   -prom-env "boot-command=dev / 0 0 s\" ibm,aix-diagnostics\" property boot cdrom:\ppc\chrp\bootfile.exe -s verbose" \
-                   -monitor telnet:0.0.0.0:4444,server,nowait \
-                   -boot n \
-                   ${ENABLE_KVM} \
-                   -netdev user,id=mynet0,net=192.168.76.0/24,dhcpstart=192.168.76.9,hostfwd=tcp::${SSH_PORT}-:22,tftp=/aix,bootfile=pxeboot_ia32_com0.bin,rootpath=/aix -device e1000,netdev=mynet0 \
-                   -m ${SYSTEM_MEMORY} -smp ${SYSTEM_CPUS}"
+    export QEMU_CMDLINE="-nographic \
+			   -cdrom /aix/ModdedCD.iso \
+               -monitor telnet:0.0.0.0:4444,server,nowait \
+               -boot n \
+               ${ENABLE_KVM} \
+               -serial mon:stdio \
+               -netdev user,id=mynet0,net=192.168.76.0/24,dhcpstart=192.168.76.9,hostfwd=tcp::${SSH_PORT}-:22,tftp=/aix,bootfile=pxeboot_ia32_com0.bin,rootpath=/aix -device e1000,netdev=mynet0 \
+               -m ${SYSTEM_MEMORY} -smp ${SYSTEM_CPUS}"
     case "${QUIET}" in
         0) exec -a "AIX ${AIX_VERSION} [QEMU${ENABLE_KVM}]" qemu-system-x86_64 ;;
         *) exec -a "AIX ${AIX_VERSION} [QEMU${ENABLE_KVM}]" qemu-system-x86_64 >/dev/null 2>&1 ;;
