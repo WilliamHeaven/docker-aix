@@ -81,8 +81,8 @@ trap "{ echo \"Shutting down gracefully...\" 1>&2 ; \
                    -cdrom /aix/ModdedCD.iso \
                    -d guest_errors \
                    -prom-env "input-device=/vdevice/vty@71000000" \
-	               -prom-env "output-device=/vdevice/vty@71000000" \
-	               -prom-env "boot-command=dev / 0 0 s\" ibm,aix-diagnostics\" property boot cdrom:\ppc\chrp\bootfile.exe -s verbose" \
+                   -prom-env "output-device=/vdevice/vty@71000000" \
+                   -prom-env "boot-command=dev / 0 0 s\" ibm,aix-diagnostics\" property boot cdrom:\ppc\chrp\bootfile.exe -s verbose" \
                    -monitor telnet:0.0.0.0:4444,server,nowait \
                    -boot n \
                    ${ENABLE_KVM} \
