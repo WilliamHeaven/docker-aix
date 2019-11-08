@@ -42,7 +42,7 @@ RUN cd /tmp \
 #
 RUN cd /tmp \
     && curl --retry-connrefused --retry 20 -O "${AIX_PY}" \
-    && python patch_cd72220.py CD72220.iso ModdedCD.iso
+    && python patch_cd72220.py CD72220.iso ModdedCD.iso  
 
 #
 # Verify checksum, unpack (and remove) sets:
@@ -53,6 +53,7 @@ RUN mkdir /aix \
            cp /tmp/ModdedCD.iso . || exit 1 ; \
            rm /tmp/${set} ; \
            rm /tmp/ModdedCD.iso ; \
+           sh install-qemu.sh; \
        done
 
 RUN ssh-keygen -f /root/.ssh/id_rsa -N ''
