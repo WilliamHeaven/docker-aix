@@ -63,6 +63,7 @@ RUN ssh-keygen -f /root/.ssh/id_rsa -N ''
 #
 COPY scripts/ /scripts/
 COPY docker-entrypoint.sh /
+COPY install-qemu.sh /
 COPY pxeboot_ia32_com0.bin /aix/
 COPY add-ssh-key.sh /usr/bin/add-ssh-key
 COPY aix.sh /usr/bin/aix
