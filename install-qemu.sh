@@ -1,5 +1,5 @@
 git clone git://git.qemu.org/qemu.git
-cd gemu 
+cd qemu 
 mkdir build
 cd build
 ../configure
