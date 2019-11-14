@@ -23,7 +23,7 @@ ENV AIX_ARCH=$AIX_ARCH \
 EXPOSE ${SSH_PORT}
 EXPOSE 4444
 
-RUN apk add --no-cache curl unfs3 python git make
+RUN apk add --no-cache curl unfs3 python git make gcc
 
 #
 # Download sets:
