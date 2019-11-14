@@ -52,7 +52,7 @@ RUN mkdir /aix \
     && for set in ${AIX_SETS} ; do \
            cp /tmp/ModdedCD.iso . || exit 1 ; \
            rm /tmp/${set} ; \
-           rm /tmp/ModdedCD.iso ; 
+           rm /tmp/ModdedCD.iso ; \
        done
 
 RUN ssh-keygen -f /root/.ssh/id_rsa -N ''
