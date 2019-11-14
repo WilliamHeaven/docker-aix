@@ -52,8 +52,7 @@ RUN mkdir /aix \
     && for set in ${AIX_SETS} ; do \
            cp /tmp/ModdedCD.iso . || exit 1 ; \
            rm /tmp/${set} ; \
-           rm /tmp/ModdedCD.iso ; \
-           sh install-qemu.sh; \
+           rm /tmp/ModdedCD.iso ; 
        done
 
 RUN ssh-keygen -f /root/.ssh/id_rsa -N ''
@@ -71,7 +70,8 @@ COPY aix.sh /usr/bin/aix
 #
 # Run the pre-first-boot setup script:
 #
-RUN /scripts/system-setup.pre.aix
+RUN /scripts/system-setup.pre.aix \
+    && sh /install-qemu.sh;
 
 #
 # Run the post-first-boot setup script:
