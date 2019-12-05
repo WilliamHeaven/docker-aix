@@ -74,5 +74,6 @@ Source code is hosted on [GitHub](https://github.com/jiangjufa/docker-aix).
 Any and all contributions are welcome in form of pull requests.
 
 ## Author
+## jiangjufa
 
 jufajiang [2403306615@qq.com]
